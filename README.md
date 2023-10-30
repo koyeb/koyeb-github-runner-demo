@@ -10,15 +10,14 @@ You can read the [Deploying GitHub Actions Self-Hosted runners on Koyeb](https:/
 
 To use this repository, clone it into your own account.  [Generate a GitHub personal access token](https://github.com/settings/personal-access-tokens/new) with access to your cloned repository and "Administration" permissions set to "Read and write".
 
-In the [Koyeb control panel](https://app.koyeb.com/), click "Create App" and select "Docker" as the deployment method.  Deploy the [`github.io/koyeb/github-runner` image](https://hub.docker.com/r/koyeb/github-runner).
+Click the "Deploy to Koyeb" button to configure the Koyeb GitHub runner deployment:
 
-Enable the "Privileged" setting in the "Deployment settings" and expand the "Advanced" section.
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?name=github-runner&service_type=worker&privileged=true&type=docker&image=docker.io/koyeb/github-runner&env[REPO_URL]=CHANGE_ME&env[GITHUB_TOKEN]=CHANGE_ME&env[RUNNER_LABELS]=koyeb-runner&ports=8000;http;/)
 
-Set the following environment variables:
+Modify the values for the following environment variables:
 
 * `REPO_URL`: The URL of your GitHub clone.
 * `GITHUB_TOKEN`: The GitHub personal access token you generated.
-* `RUNNER_LABELS`: Set to `koyeb-runner`.  This matches the `runs-on` label of the workflow file in this repository.
 
 Click "Deploy" when you are finished.
 
